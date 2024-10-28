@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -24,6 +25,24 @@ public class Product {
 	
 	private LocalDate postedOn = LocalDate.now();
 	
+	@ManyToOne
+	private Vendor vendor;
+	
+	@ManyToOne
+	private Category category;
+	
+	public Vendor getVendor() {
+		return vendor;
+	}
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public int getId() {
 		return id;
 	}
@@ -58,7 +77,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price
-				+ ", postedOn=" + postedOn + "]";
+				+ ", postedOn=" + postedOn + ", vendor="+ vendor + ", category=" + category + "]";
 	}
 	
 }
