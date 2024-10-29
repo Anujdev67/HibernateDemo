@@ -2,7 +2,7 @@ package com.hibernate.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import java.util.List;
 
@@ -26,23 +26,23 @@ public class AuthService {
 		this.entityManager = entityManager;
 		this.entityTransaction = entityManager.getTransaction();
 	}
-	public String checkIfAdmin(Scanner sc) {
+	public boolean checkIfAdmin(String username,String password) {
 		boolean status = false;
-		System.out.println("&&&&&&&&&&&&&&&&Bank Login&&&&&&&&&&&&&&&&");
-		System.out.print("Enter Username:");
-		String username = sc.next();
-		System.out.println("Enter Password");
-		String password = sc.next();
-		
+//		System.out.println("&&&&&&&&&&&&&&&&Bank Login&&&&&&&&&&&&&&&&");
+//		System.out.print("Enter Username:");
+//		String username = sc.next();
+//		System.out.println("Enter Password");
+//		String password = sc.next();
+//		
 		if(map.containsKey(username)) {
 			String mapPassword = map.get(username);
 			if(mapPassword.equals(password))
-				status = true;
+				return true;
 		}
-		if(status == true) 
-			return username;
-		else
-			return null;
+//		if(status == true) 
+//			return username;
+//		else
+			return false;
 		
 	}
 	public boolean checkIfUsernameUnique(String username) {
