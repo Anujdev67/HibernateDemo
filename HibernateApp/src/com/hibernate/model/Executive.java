@@ -13,7 +13,7 @@ public class Executive {
 	private double salary; 
 	
 	@OneToOne
-	private User user;
+	private User user;    // in sql use e.user    not Capital datatype(User)
 
 	public int getId() {
 		return id;

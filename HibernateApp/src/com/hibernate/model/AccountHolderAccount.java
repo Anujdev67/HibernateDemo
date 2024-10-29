@@ -6,7 +6,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name = "accountholder_account")
-public class AccountHolderAccount {
+public class AccountHolderAccount {   // this is aha for sql
 	@Id
 	private int id;
 	

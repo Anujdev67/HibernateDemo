@@ -11,6 +11,8 @@ public class Customer {
 	
 	@ManyToOne
 	private Address address;
+	@ManyToOne
+	private User user;
 	public int getId() {
 		return id;
 	}
@@ -35,9 +37,16 @@ public class Customer {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + "]";
+		return "Customer [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + ", user=" + user +"]";
 	}
 	
 	
