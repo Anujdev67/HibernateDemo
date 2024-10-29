@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.hibernate.exception.ResourceNotFoundException;
 import com.hibernate.model.Account;
 import com.hibernate.model.AccountHolder;
+import java.util.List;
 import com.hibernate.model.AccountHolderAccount;
 import com.hibernate.model.Executive;
 import com.hibernate.service.AccountService;
@@ -64,6 +65,12 @@ public class BankController {
 							System.out.println("Username already in use...");
 						}
 						break;
+					case 2:
+						System.out.println("Enter contact no. ");
+						List<AccountHolderAccount> list = accountService.fetchAccountHolderWithAccountByContact(sc.next());
+						list.stream().forEach(System.out :: println);
+						
+						break;
 				}		
 				}
 			}
@@ -75,6 +82,7 @@ public class BankController {
 					while(true) {
 						System.out.println("------EXECUTIVE MENU-------");
 						System.out.println("1. Create Account for AccountHolder");
+						System.out.println("2. Search Account Holder Info with Account by Contact");
 						System.out.println("0. Exit");
 						int input = sc.nextInt();
 						if(input == 0) {

@@ -3,7 +3,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 @Entity
-public class AccountHolder {
+public class AccountHolder {   // this is ah for jpql query
 	
 	@Id
 	private int id; 
