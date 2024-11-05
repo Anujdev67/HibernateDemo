@@ -13,4 +13,13 @@ public class CourseService {
 		 
 		return courseRepository.fetchAllCourses();
 	}
+	public List<Course> getEnrolledCourses(Object usernameObj) {
+		String username = (String) usernameObj;
+		
+		return courseRepository.fetchAllEnrolledCourses(username);
+	}
+	public void softDelete(String cid) {
+		courseRepository.softDelete(Integer.parseInt(cid));
+		
+	}
 }

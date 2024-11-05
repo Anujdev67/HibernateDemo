@@ -28,8 +28,7 @@
         </li>
       </ul>
       <form class="d-flex">
-		<span>Welcome <%=request.getAttribute("username") %></span>
-         
+				<span>Welcome <%=session.getAttribute("username") %></span>
       </form>
     </div>
   </div>
