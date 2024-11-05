@@ -38,6 +38,8 @@ public class ProductController {
 		System.out.println("4.Update Product Details");
 		System.out.println("5.Enter Vendor in Db");
 		 System.out.println("6. Enter Category in Db"); 
+		 System.out.println("7. Fetch All Products-HQL");
+			System.out.println("8. Fetch All Products-Criteria Query");
 		System.out.println("0.Exit");
 		int input = sc.nextInt();
 		if(input == 0) {
@@ -105,6 +107,14 @@ public class ProductController {
             productService.saveCategory(category);
             System.out.println("Category Added to Db..");
             break;
+        case 7:
+			list = productService.getAllUsingHQL();
+			list.stream().forEach(System.out :: println);
+			break;
+		case 8:
+			list = productService.getAllUsingCriteriaQuery();
+			list.stream().forEach(System.out :: println);
+			break;
 		default:
 			System.out.println("Invalid Input,Try Again!");
 			break;

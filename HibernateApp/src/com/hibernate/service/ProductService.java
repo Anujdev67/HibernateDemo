@@ -11,6 +11,9 @@ import com.hibernate.model.Vendor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 public class ProductService {
 
@@ -120,5 +123,25 @@ public class ProductService {
 		entityTransaction.commit();
 		return list;
 	}
+
+	public List<Product> getAllUsingHQL() {
+		entityTransaction.begin();
+		String hql="from Product";
+		TypedQuery <Product> query = entityManager.createQuery(hql, Product.class);
+		
+		entityTransaction.commit();
+		return query.getResultList();
+	}
+	public List<Product> getAllUsingCriteriaQuery() {
+		entityTransaction.begin();
+		CriteriaBuilder criteriaBuilder =  entityManager.getCriteriaBuilder();
+		CriteriaQuery <Product> criteriaQuery =  criteriaBuilder.createQuery(Product.class);
+		Root<Product> rootProduct =  criteriaQuery.from(Product.class);
+		criteriaQuery.select(rootProduct);
+		TypedQuery <Product> query = entityManager.createQuery(criteriaQuery);
+		entityTransaction.commit();
+		return query.getResultList();
+	}
+	
 
 }
